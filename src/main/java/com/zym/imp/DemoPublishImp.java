@@ -15,8 +15,10 @@ import com.zym.bean.Instrument;
 import com.zym.interf.IPublish;
 
 public class DemoPublishImp implements IPublish {
-
+	
+	//Set for allowed fields which can be used for mapping
 	private Set<String> fields = new HashSet<String>();
+	
 	// Use a hashmap to replace database in this demo.
 	private Map<String, List<Instrument>> cache = new HashMap<String, List<Instrument>>();
 
@@ -25,6 +27,7 @@ public class DemoPublishImp implements IPublish {
 	private final String publisher1 = "LME";
 	private final String publisher2 = "PRIME";
 
+	//initialize some values
 	public DemoPublishImp() {
 		fields.add("code");
 		fields.add("exchangecode");
@@ -78,6 +81,9 @@ public class DemoPublishImp implements IPublish {
 		return "success";
 	}
 
+	/**
+	 * Show initialized records
+	 * */
 	@Override
 	public void ShowAllData(List<Instrument> li) {
 		System.out.println("Here are some initialized informations for test");
@@ -87,6 +93,9 @@ public class DemoPublishImp implements IPublish {
 		System.out.println("");
 	}
 
+	/**
+	 * Get fields for mapping
+	 * */
 	private String getFieldForMapping(String exchange, Scanner sc) {
 		String fieldName;
 		while (true) {
@@ -111,6 +120,9 @@ public class DemoPublishImp implements IPublish {
 		return fieldName;
 	}
 
+	/**
+	 * Select publisher. LME or PRIME
+	 * */
 	private String SelectPublisher(Scanner sc) {
 		String name = null;
 		while (true) {
@@ -129,6 +141,9 @@ public class DemoPublishImp implements IPublish {
 		return name;
 	}
 
+	/**
+	 * Select published code
+	 * */
 	private List<Instrument> SelectCode(String publisher, Scanner sc) {
 		List<Instrument> l = new ArrayList<Instrument>();
 		while (true) {

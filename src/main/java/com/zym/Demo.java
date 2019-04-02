@@ -10,7 +10,7 @@ public class Demo {
 
 	public static void main(String[] args) {
 		
-		//initialize some informationa 
+		//initialize some informations
 		Instrument i1=new Instrument();
 		i1.setPublisher("LME");
 		i1.setCode("PB_03_2018");
